@@ -60,7 +60,7 @@
 				<div class="features-content">
 					<div class="features-content-wrapper">
 						<span class="mbr-iconfont mobi-mbri-more-vertical mobi-mbri display-3"></span>
-						<p class="mbr-text mbr-fonts-style display-5">Classic and Trust-Driven, Protecting what matters most !</p>
+						<p class="mbr-text mbr-fonts-style display-5 eh-main-title">Classic and Trust-Driven, Protecting what matters most !</p>
 					</div>
 					<div class="mbr-section-btn">
 						<a class="btn btn-white display-4" href="/contact-us">Book Appointment</a>
@@ -76,14 +76,14 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 title-col pb-5">
-				<h2 class="main-title align-center mbr-black m-0 mbr-fonts-style display-5"><strong>BROWSE CATEGORY</strong></h2>
+				<h2 class="main-title align-center mbr-black m-0 mbr-fonts-style display-5 eh-main-title"><strong>BROWSE CATEGORY</strong></h2>
 			</div>
 			{#each categories as cat}
 				<div class="col-12 col-md-6 col-lg-2 md-pb">
 					<div class="card-wrapper">
 						<div class="card-box align-center">
 							<span class="mbr-iconfont {cat.icon}"></span>
-							<h4 class="card-title align-center mbr-black m-0 mbr-fonts-style display-7">{cat.label}</h4>
+							<h4 class="card-title align-center mbr-black m-0 mbr-fonts-style display-7 eh-card-title">{cat.label}</h4>
 						</div>
 					</div>
 				</div>
@@ -101,9 +101,9 @@
 					<div class="border-wrap border_1"></div>
 					<div class="border-wrap border_2"></div>
 					<div class="title-wrapper">
-						<h2 class="mbr-section-title mbr-fonts-style display-2">el Hage Assurances</h2>
+						<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">el Hage Assurances</h2>
 						<div class="text-wrapper">
-							<p class="mbr-text mbr-fonts-style display-4">Your trusted partner in protection &amp; peace of mind<br><br>At El Hage Assurances, we believe that insurance is not just a contract, it is a promise to protect what matters most to you.<br><br>For years, we have been helping individuals, families, and businesses in Canada secure their future with reliable, transparent, and affordable insurance solutions.</p>
+							<p class="mbr-text mbr-fonts-style display-4 eh-main-text">Your trusted partner in protection &amp; peace of mind<br><br>At El Hage Assurances, we believe that insurance is not just a contract, it is a promise to protect what matters most to you.<br><br>For years, we have been helping individuals, families, and businesses in Canada secure their future with reliable, transparent, and affordable insurance solutions.</p>
 						</div>
 						<div class="mbr-section-btn">
 							<a class="btn btn-primary display-4" href="/our-services">our Services</a>
@@ -122,13 +122,13 @@
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-5 card">
 				<div class="content-wrapper">
-					<p class="mbr-label mbr-fonts-style display-7">Let us get you Covered !</p>
-					<h2 class="mbr-section-title mbr-fonts-style display-2">Start Your Ease of Mind Here</h2>
-					<p class="mbr-text mbr-fonts-style display-7">Take the first step toward a well covered you. Tell us what you need and we will get back to you the soonest possible.</p>
+					<p class="mbr-label mbr-fonts-style display-7 eh-card-text">Let us get you Covered !</p>
+					<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">Start Your Ease of Mind Here</h2>
+					<p class="mbr-text mbr-fonts-style display-7 eh-main-text">Take the first step toward a well covered you. Tell us what you need and we will get back to you the soonest possible.</p>
 				</div>
 			</div>
 			<div class="col-12 col-lg-5 card">
-				<h3 class="mbr-section-subtitle mbr-fonts-style display-5">GET A QUOTE !</h3>
+				<h3 class="mbr-section-subtitle mbr-fonts-style display-5 eh-main-title">GET A QUOTE !</h3>
 				<div class="mbr-form form-wrap card-wrap">
 					<QuoteForm prefix="home" btnLabel="GET A QUOTE" />
 				</div>
@@ -144,10 +144,10 @@
 			<div class="col-12 col-lg-10">
 				<div class="content-wrapper">
 					<div class="title-wrapper">
-						<p class="mbr-label mbr-fonts-style display-4">our Commitment at "El Hage Assurances"</p>
-						<h2 class="mbr-section-title mbr-fonts-style display-2">We stand by our clients at every step</h2>
+						<p class="mbr-label mbr-fonts-style display-4 eh-card-text">our Commitment at "El Hage Assurances"</p>
+						<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">We stand by our clients at every step</h2>
 						<div class="text-wrapper">
-							<p class="mbr-text mbr-fonts-style display-7">choosing the right coverage<br>supporting you during claims<br>adapting your insurance as your life grows.<br><br>Your trust is our greatest asset.</p>
+							<p class="mbr-text mbr-fonts-style display-7 eh-main-text">choosing the right coverage<br>supporting you during claims<br>adapting your insurance as your life grows.<br><br>Your trust is our greatest asset.</p>
 						</div>
 					</div>
 					<div class="row items-wrapper justify-content-center">
@@ -170,9 +170,9 @@
 					<div class="item col-12 col-lg-6">
 						<div class="item-wrap">
 							<div class="item-content">
-								<p class="label-text mbr-fonts-style display-4">{panel.label}</p>
-								<h5 class="item-title mbr-fonts-style mb-0 display-2"><strong>{@html panel.title}</strong></h5>
-								<p class="mbr-text mbr-fonts-style display-4">{panel.text}</p>
+								<p class="label-text mbr-fonts-style display-4 eh-card-text">{panel.label}</p>
+								<h5 class="item-title mbr-fonts-style mb-0 display-2 eh-bigcard-title"><strong>{@html panel.title}</strong></h5>
+								<p class="mbr-text mbr-fonts-style display-4 eh-bigcard-text">{panel.text}</p>
 								<div class="link-container">
 									<p class="display-4">
 										<a href="/contact-us" class="link {panel.linkClass}">

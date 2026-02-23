@@ -32,3 +32,10 @@
 		</div>
 	</nav>
 </section>
+
+<style>
+	:global(.cid-vahkITtt1N .nav-link:hover),
+	:global(.cid-vahkITtt1N .nav-link:focus) {
+		border-radius: 4px !important;
+	}
+</style>

@@ -8,8 +8,8 @@
 			<img src={image} {alt}>
 		</div>
 		<div class="item-content">
-			<h4 class="item-title mbr-fonts-style display-5">{title}</h4>
-			<p class="item-text mbr-fonts-style display-7">{text}</p>
+			<h4 class="item-title mbr-fonts-style display-5 eh-card-title">{title}</h4>
+			<p class="item-text mbr-fonts-style display-7 eh-card-text">{text}</p>
 		</div>
 	</div>
 </div>

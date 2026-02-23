@@ -15,8 +15,8 @@
 					<div class="item-wrapper">
 						<img class="d-block w-100" src={slide.image} alt={slide.alt}>
 						<div class="carousel-caption">
-							<h5 class="mbr-section-subtitle mbr-fonts-style mb-3 display-5">{@html slide.title}</h5>
-							<p class="mbr-section-text mbr-fonts-style mb-4 display-7">{slide.text}</p>
+							<h5 class="mbr-section-subtitle mbr-fonts-style mb-3 display-5 eh-hero-title">{@html slide.title}</h5>
+							<p class="mbr-section-text mbr-fonts-style mb-4 display-7 eh-hero-text">{slide.text}</p>
 							<div class="mbr-section-btn mb-5">
 								<a class="btn btn-primary display-7" href={slide.href}>{slide.btnText}</a>
 							</div>
