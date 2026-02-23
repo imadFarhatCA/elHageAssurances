@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
 </script>
 
 <section data-bs-version="5.1" class="menu menu01 neuralm5 cid-vahkITtt1N" id="menu01-4">
@@ -28,14 +29,45 @@
 					<li class="nav-item"><a class="nav-link link text-white display-4" href="/the-events">the events</a></li>
 					<li class="nav-item"><a class="nav-link link text-white display-4" href="/contact-us">contact us</a></li>
 				</ul>
+				<LanguageToggle />
 			</div>
 		</div>
 	</nav>
 </section>
 
 <style>
-	:global(.cid-vahkITtt1N .nav-link:hover),
-	:global(.cid-vahkITtt1N .nav-link:focus) {
-		border-radius: 4px !important;
+	/* pull the whole nav bar up */
+	:global(.cid-vahkITtt1N) { margin-top: -12px; }
+
+	/* override Mobirise — match its specificity (.nav-item .nav-link) */
+	:global(.cid-vahkITtt1N .nav-item .nav-link) {
+		border-radius: 0 !important;
+		position: relative;
+		padding-bottom: 4px;
+		font-size: 1.05rem !important;
+		margin: 0 4px !important;
+		transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease !important;
+	}
+	:global(.cid-vahkITtt1N .nav-item .nav-link:hover),
+	:global(.cid-vahkITtt1N .nav-item .nav-link:focus) {
+		background: transparent !important;
+		border-radius: 0 !important;
+		color: #fff !important;
+		opacity: 0.7;
+		transform: translateY(-2px);
+	}
+
+	/* sliding underline */
+	:global(.cid-vahkITtt1N .nav-item .nav-link::after) {
+		content: '';
+		position: absolute;
+		bottom: 0; left: 50%;
+		width: 0; height: 1px;
+		background: #fff;
+		transition: width 0.25s ease, left 0.25s ease;
+	}
+	:global(.cid-vahkITtt1N .nav-item .nav-link:hover::after),
+	:global(.cid-vahkITtt1N .nav-item .nav-link:focus::after) {
+		width: 60%; left: 20%;
 	}
 </style>
