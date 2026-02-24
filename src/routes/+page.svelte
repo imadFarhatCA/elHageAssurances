@@ -12,11 +12,11 @@
 	];
 
 	const categories = [
-		{ icon: 'mbrib-home', label: 'Home' },
-		{ icon: 'icon54-v4-building-construction', label: 'Corporate' },
-		{ icon: 'icon54-v4-car', label: 'Auto' },
-		{ icon: 'icon54-v4-lifebuoy', label: 'Life' },
-		{ icon: 'icon54-v2-left-items', label: 'Bundle' }
+		{ icon: 'fa fa-home', label: 'Home' },
+		{ icon: 'fa fa-building', label: 'Corporate' },
+		{ icon: 'fa fa-car', label: 'Auto' },
+		{ icon: 'fa fa-heartbeat', label: 'Life' },
+		{ icon: 'fa fa-th-large', label: 'Bundle' }
 	];
 
 	const services = [
@@ -26,9 +26,19 @@
 	];
 
 	const stats = [
-		{ value: '25mil', text: 'Human labor hours saved<br>with help of AI', cardClass: 'card-1' },
-		{ value: '1.5b+', text: 'Generated revenue by<br>AI Solutions', cardClass: 'card-2' },
-		{ value: '$20mil+', text: 'Saved operational costs<br>due to AI', cardClass: 'card-3' }
+		{ value: '7M+', text: 'Insured households across<br>Québec & Ontario', cardClass: 'card-1' },
+		{ value: '$45B+', text: 'In annual insurance premiums<br>across both provinces', cardClass: 'card-2' },
+		{ value: '30%', text: 'Average savings when<br>bundling home & auto', cardClass: 'card-3' }
+	];
+
+	const insurers = [
+		'intactLogo.svg', 'avivaLogo.svg', 'wawanesaLogo.svg', 'chubbLogo.svg',
+		'libertyMutual.svg', 'echelonLogo.svg', 'Zurich.svg', 'markel.svg',
+		'promutuel.svg', 'optimum.svg', 'northBridge logo.svg', 'aprilLogo.svg',
+		'pafco.svg', 'uniqueAssurance.svg', 'intactPrestige.svg', 'premierCanada.svg',
+		'AMFlogo.svg', 'revau.svg', 'victor.svg', 'soplex.svg',
+		'orbit.svg', 'vago.svg', 'CFC.svg', 'Ches.svg',
+		'SMB.svg', 'SWG.svg', 'TSW.svg', 'JUSTe.svg'
 	];
 
 	const faq = [
@@ -51,6 +61,24 @@
 </svelte:head>
 
 <HeroSlider {slides} id="heroCarousel" />
+
+<!-- Insurer Logos Marquee -->
+<section class="partners-strip">
+	<div class="partners-label">Our Trusted Insurer Partners</div>
+	<div class="partners-track-wrap">
+		<div class="partners-track">
+			{#each [...insurers, ...insurers] as logo}
+				<div class="partners-logo">
+					<img
+						src="/assets/images/insurers/{encodeURIComponent(logo)}"
+						alt={logo.replace(/Logo\.svg|\.svg/i, '').replace(/([A-Z])/g, ' $1').trim()}
+						loading="lazy"
+					/>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
 
 <!-- Tagline Banner -->
 <section data-bs-version="5.1" class="features5 cid-vahEGYaLbg" id="features5-g">
@@ -75,12 +103,15 @@
 <section data-bs-version="5.1" class="features6 cid-vahFekxp4z" id="features06-i">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-12 title-col pb-5">
-				<h2 class="main-title align-center mbr-black m-0 mbr-fonts-style display-5 eh-main-title"><strong>BROWSE CATEGORY</strong></h2>
+			<div class="col-12 title-col">
+				<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">Choose your Insurance</h2>
+				<p class="cat-subtitle">Explore our range of coverage options tailored to protect what matters most to you.</p>
 			</div>
-			{#each categories as cat}
-				<div class="col-12 col-md-6 col-lg-2 md-pb">
-					<div class="card-wrapper">
+		</div>
+		<div class="row justify-content-center g-3 cat-grid">
+			{#each categories as cat, i}
+				<div class="col-6 col-md-4 col-lg-2 cat-col" class:cat-last={i === categories.length - 1 && categories.length % 2 !== 0}>
+					<div class="card-wrapper h-100">
 						<div class="card-box align-center">
 							<span class="mbr-iconfont {cat.icon}"></span>
 							<h4 class="card-title align-center mbr-black m-0 mbr-fonts-style display-7 eh-card-title">{cat.label}</h4>
@@ -101,7 +132,7 @@
 					<div class="border-wrap border_1"></div>
 					<div class="border-wrap border_2"></div>
 					<div class="title-wrapper">
-						<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">el Hage Assurances</h2>
+						<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">El-Hage Assurances</h2>
 						<div class="text-wrapper">
 							<p class="mbr-text mbr-fonts-style display-4 eh-main-text">Your trusted partner in protection &amp; peace of mind<br><br>At El Hage Assurances, we believe that insurance is not just a contract, it is a promise to protect what matters most to you.<br><br>For years, we have been helping individuals, families, and businesses in Canada secure their future with reliable, transparent, and affordable insurance solutions.</p>
 						</div>
@@ -128,8 +159,7 @@
 				</div>
 			</div>
 			<div class="col-12 col-lg-5 card">
-				<h3 class="mbr-section-subtitle mbr-fonts-style display-5 eh-main-title">GET A QUOTE !</h3>
-				<div class="mbr-form form-wrap card-wrap">
+				<div class="mbr-form form-wrap card-wrap form-col-right">
 					<QuoteForm prefix="home" btnLabel="GET A QUOTE" />
 				</div>
 			</div>
@@ -213,3 +243,163 @@
 </section>
 
 <FaqAccordion items={faq} />
+
+<style>
+	/* about section title — override Mobirise near-black to brand blue */
+	:global(.cid-vahwOEdtLW .eh-main-title) {
+		color: #204a77 !important;
+	}
+
+	/* thin line under the three main titles */
+	:global(.cid-vahwOEdtLW .eh-main-title::after),
+	:global(.cid-vahFekxp4z .eh-main-title::after),
+	:global(.cid-vahyic37Pe .eh-main-title::after) {
+		content: '';
+		display: block;
+		width: 80px;
+		height: 1px;
+		background: currentColor;
+		opacity: 0.5;
+		margin: 0.9rem auto 0;
+	}
+
+	/* subtitle under title */
+	:global(.cid-vahFekxp4z .cat-subtitle) {
+		text-align: center;
+		color: #6b7280;
+		font-size: 1rem !important;
+		font-weight: 300;
+		margin: 2.2rem auto 2.5rem !important;
+		max-width: 480px;
+		line-height: 1.6;
+	}
+
+	/* square cards */
+	:global(.cid-vahFekxp4z .card-wrapper) {
+		aspect-ratio: 1 / 1 !important;
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: center !important;
+		align-items: center !important;
+		border-radius: 8px !important;
+		transition: all 0.25s ease !important;
+	}
+
+	@media (max-width: 767px) {
+		:global(.cid-vahFekxp4z) {
+			padding-top: 3rem !important;
+			padding-bottom: 3rem !important;
+		}
+		:global(.cid-vahFekxp4z .cat-subtitle) {
+			font-size: 0.9rem !important;
+			margin: 1.8rem auto 1.5rem !important;
+		}
+		:global(.cid-vahFekxp4z .container) {
+			padding-left: 16px !important;
+			padding-right: 16px !important;
+		}
+		/* replace Bootstrap flex grid with CSS Grid for perfectly equal gaps */
+		:global(.cid-vahFekxp4z .cat-grid) {
+			display: grid !important;
+			grid-template-columns: 1fr 1fr !important;
+			gap: 10px !important;
+		}
+		/* strip Bootstrap col padding/margin so CSS grid gap is the only spacing */
+		:global(.cid-vahFekxp4z .cat-grid > *) {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			margin-top: 0 !important;
+			flex: none !important;
+			max-width: none !important;
+			width: auto !important;
+		}
+		:global(.cid-vahFekxp4z .mbr-iconfont) {
+			font-size: 2.6rem !important;
+			margin-bottom: 0.6rem !important;
+		}
+		:global(.cid-vahFekxp4z .eh-card-title) {
+			font-size: 1rem !important;
+			font-weight: 500 !important;
+		}
+		/* last card spans both columns — full width */
+		:global(.cid-vahFekxp4z .cat-last) {
+			grid-column: 1 / -1 !important;
+		}
+		:global(.cid-vahFekxp4z .cat-last .card-wrapper) {
+			aspect-ratio: 2 / 1 !important;
+			width: 100% !important;
+		}
+	}
+
+	/* ── PARTNERS MARQUEE ────────────────────────────────────── */
+	@keyframes partners-scroll {
+		from { transform: translateX(0); }
+		to   { transform: translateX(-50%); }
+	}
+
+	.partners-strip {
+		background: #f7f8fa;
+		padding: 3.5rem 0;
+		overflow: hidden;
+	}
+
+	.partners-label {
+		text-align: center;
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: #a0aec0;
+		margin-bottom: 2.2rem;
+	}
+
+	.partners-track-wrap {
+		overflow: hidden;
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+		mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+	}
+
+	.partners-track {
+		display: flex;
+		align-items: center;
+		gap: 6rem;
+		width: max-content;
+		animation: partners-scroll 110s linear infinite;
+	}
+	.partners-track:hover {
+		animation-play-state: paused;
+	}
+
+	.partners-logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 150px;
+		flex-shrink: 0;
+	}
+	.partners-logo img {
+		height: 124px;
+		width: auto;
+		max-width: 340px;
+		object-fit: contain;
+		filter: grayscale(1) opacity(0.45);
+		transition: filter 0.25s ease;
+	}
+	.partners-logo img:hover {
+		filter: grayscale(0) opacity(1);
+	}
+
+	@media (max-width: 768px) {
+		.partners-logo {
+			height: 130px;
+		}
+		.partners-logo img {
+			height: 108px;
+			max-width: 280px;
+		}
+		.partners-track {
+			gap: 5rem;
+			animation-duration: 90s;
+		}
+	}
+</style>

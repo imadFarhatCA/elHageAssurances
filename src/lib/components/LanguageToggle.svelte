@@ -26,20 +26,20 @@
 		display: inline-flex;
 		align-items: center;
 		background: rgba(255, 255, 255, 0.15);
-		border-radius: 20px;
-		padding: 3px;
+		border-radius: 5px;
+		padding: 4px;
 		gap: 2px;
 		position: relative;
 	}
 
-	/* sliding pill */
+	/* sliding block */
 	.lang-toggle::before {
 		content: '';
 		position: absolute;
 		width: calc(50% - 3.5px);
 		height: calc(100% - 6px);
 		background: #fff;
-		border-radius: 16px;
+		border-radius: 4px;
 		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
 		transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 		left: 3px;
@@ -56,13 +56,13 @@
 		z-index: 1;
 		background: transparent;
 		border: none;
-		border-radius: 16px;
+		border-radius: 4px;
 		cursor: pointer;
 		font-size: 0.72rem;
 		font-weight: 700;
 		letter-spacing: 0.06em;
 		color: rgba(255, 255, 255, 0.65);
-		padding: 5px 11px;
+		padding: 8px 13px;
 		transition: color 0.28s ease;
 		font-family: inherit;
 		line-height: 1;

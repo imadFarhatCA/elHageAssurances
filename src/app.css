@@ -8,7 +8,7 @@
 .eh-hero-text   { font-size: 1.05rem  !important; line-height: 1.6 !important; }
 
 /* ── Main section headings & body ─────────────────────────── */
-.eh-main-title  { font-size: 3.2rem   !important; line-height: 1.15 !important; }
+.eh-main-title  { font-size: 3.2rem   !important; font-weight: 400 !important; line-height: 1.15 !important; }
 .eh-main-text   { font-size: 1rem     !important; line-height: 1.65 !important; }
 
 /* ── Cards (ServiceCard, QuoteForm labels, FAQ) ───────────── */
@@ -18,3 +18,30 @@
 /* ── BigCard (Life/Business panels, Stats) ────────────────── */
 .eh-bigcard-title { font-size: 3rem   !important; line-height: 1.1 !important; }
 .eh-bigcard-text  { font-size: 1rem   !important; line-height: 1.6 !important; }
+
+/* ── Quote / CTA form section — margin pushes it off the footer ── */
+.cid-vap8M4mCKq {
+  margin-bottom: 4rem !important;
+}
+
+/* ── Form column right-side alignment (desktop only) ─────── */
+.form-col-right {
+  margin-top: 3.2rem !important;
+}
+
+/* ── Mobile responsive scaling ────────────────────────────── */
+@media (max-width: 768px) {
+  .eh-hero-title    { font-size: 1.6rem  !important; line-height: 1.2 !important; }
+  .eh-hero-text     { font-size: 0.95rem !important; }
+
+  .eh-main-title    { font-size: 2rem    !important; line-height: 1.2 !important; }
+  .eh-main-text     { font-size: 0.95rem !important; }
+
+  .eh-card-title    { font-size: 1.1rem  !important; }
+  .eh-card-text     { font-size: 0.88rem !important; }
+
+  .eh-bigcard-title { font-size: 2.2rem  !important; }
+  .eh-bigcard-text  { font-size: 0.95rem !important; }
+
+  .form-col-right   { margin-top: 0 !important; }
+}
