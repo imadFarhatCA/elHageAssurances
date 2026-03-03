@@ -6,6 +6,10 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+	<script src="https://website-control-panel.pages.dev/tracker.js"></script>
+</svelte:head>
+
 <Nav />
 
 <!-- pushes page content below the fixed nav bar on mobile -->
