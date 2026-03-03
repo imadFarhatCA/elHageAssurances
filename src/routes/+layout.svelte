@@ -2,13 +2,12 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import '../app.css';
+	import WebsiteTracker from '$lib/components/WebsiteTracker.svelte';
 
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<script src="https://website-control-panel.pages.dev/tracker.js"></script>
-</svelte:head>
+<WebsiteTracker />
 
 <Nav />
 
