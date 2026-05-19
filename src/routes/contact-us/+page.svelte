@@ -1,11 +1,12 @@
 <script>
-	import QuoteForm from '$lib/components/QuoteForm.svelte';
+	import ContactBlock from '$lib/components/ContactBlock.svelte';
 	import FaqAccordion from '$lib/components/FaqAccordion.svelte';
+	import { site } from '$lib/data/site.js';
 
 	const contactInfo = [
-		{ icon: 'fa fa-envelope', label: 'Email', value: 'info@elhageassurances.com', href: 'mailto:info@elhageassurances.com' },
-		{ icon: 'fa fa-phone', label: 'Phone', value: '+1 (514) 000-0000', href: 'tel:+15140000000' },
-		{ icon: 'fa fa-map-marker', label: 'Office', value: '4220 blvd Saint-Martin O, Laval, QC H7T 1C1', href: null }
+		{ icon: 'fa fa-envelope',    label: 'Email',  value: site.email.display, href: site.email.href },
+		{ icon: 'fa fa-phone',       label: 'Phone',  value: site.phone.display, href: site.phone.href },
+		{ icon: 'fa fa-map-marker',  label: 'Office', value: site.address.full,  href: null }
 	];
 
 	const hours = [
@@ -17,11 +18,11 @@
 	const faq = [
 		{
 			q: 'How do I report a claim?',
-			a: 'Call us directly at +1 (514) 000-0000 during office hours and one of our advisors will open your claim file immediately. You can also email info@elhageassurances.com with your policy number, a brief description, and any photos. We will confirm receipt within a few hours and guide you through each next step.'
+			a: 'Call us directly at +1 (514) 577 5715 during office hours and one of our advisors will open your claim file immediately. You can also email info@elhageassurances.com with your policy number, a brief description, and any photos. We will confirm receipt within a few hours and guide you through each next step.'
 		},
 		{
 			q: 'What number should I call in an emergency outside office hours?',
-			a: 'For urgent situations outside our regular hours — such as a car accident, fire, or water damage — contact your insurer\'s 24/7 emergency line directly. The number is printed on your policy certificate and insurance card. If you cannot locate it, leave us a voicemail at +1 (514) 000-0000 and we will call you back first thing the next business day.'
+			a: 'For urgent situations outside our regular hours — such as a car accident, fire, or water damage — contact your insurer\'s 24/7 emergency line directly. The number is printed on your policy certificate and insurance card. If you cannot locate it, leave us a voicemail at +1 (514) 577 5715 and we will call you back first thing the next business day.'
 		},
 		{
 			q: 'What information should I have ready when I call?',
@@ -112,57 +113,9 @@
 	</div>
 </section>
 
-<!-- Contact Info + Form -->
-<section data-bs-version="5.1" class="form01 rebootm5 cid-vap8M4mCKq" id="contact-form">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-5 card">
-				<div class="content-wrapper">
-					<p class="mbr-label mbr-fonts-style display-7 eh-card-text">Get in touch</p>
-					<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">Send us a Message</h2>
-					<p class="mbr-text mbr-fonts-style display-7 eh-main-text">Fill out the form and one of our advisors will get back to you — usually within one business day.</p>
+<ContactBlock {contactInfo} {hours} />
 
-					<div style="margin-top:2rem;">
-						{#each contactInfo as info}
-							<div style="display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.1rem;">
-								<span class="{info.icon} mbr-iconfont" style="font-size:1.2rem; color:rgba(255,255,255,0.6); margin-top:0.2rem; min-width:1.2rem;"></span>
-								<div>
-									<p style="font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.08em; margin:0 0 0.15rem; text-transform:uppercase;">{info.label}</p>
-									{#if info.href}
-										<a href={info.href} style="font-size:1rem; color:#fff; text-decoration:none;">{info.value}</a>
-									{:else}
-										<p style="font-size:1rem; color:#fff; margin:0;">{info.value}</p>
-									{/if}
-								</div>
-							</div>
-						{/each}
-					</div>
-
-					<div style="margin-top:2rem; border-top:1px solid rgba(255,255,255,0.15); padding-top:1.5rem;">
-						<p style="font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:0.08em; margin-bottom:0.8rem; text-transform:uppercase;">Office Hours</p>
-						{#each hours as h}
-							<div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-								<span style="font-size:0.9rem; color:rgba(255,255,255,0.7);">{h.day}</span>
-								<span style="font-size:0.9rem; color:{h.time === 'Closed' ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.9)'};">{h.time}</span>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
-			<div class="col-12 col-lg-5 card">
-				<div class="mbr-form form-wrap card-wrap form-col-right">
-					<QuoteForm prefix="contact" btnLabel="SEND MESSAGE" />
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<FaqAccordion
-	items={faq}
-	accordionId="contact-faq"
-	label="Important Questions & Information you need to know !"
-/>
+<FaqAccordion items={faq} label="Important questions and information you need to know" />
 
 <style>
 	/* ── MAP HERO ──────────────────────────────────────── */

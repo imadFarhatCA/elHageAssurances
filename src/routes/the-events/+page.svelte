@@ -1,5 +1,7 @@
 <script>
 	import PageHero from '$lib/components/PageHero.svelte';
+	import RecurrentEventsList from '$lib/components/RecurrentEventsList.svelte';
+	import PastEventsList from '$lib/components/PastEventsList.svelte';
 
 	const events = [
 		{
@@ -26,11 +28,10 @@
 	];
 
 	const recurrent = [
-		{ month: 'JAN', icon: 'fa fa-home', title: 'Annual Home Insurance Review', location: 'Montréal & Laval, QC', text: 'Every January, we invite homeowners to sit down with one of our advisors for a free annual review of their property coverage — making sure their policy keeps pace with their life.' },
-		{ month: 'APR', icon: 'fa fa-car', title: 'Spring Auto Insurance Check-Up', location: 'Across Québec & Ontario', text: 'A seasonal check-up event held each spring to help drivers review and optimize their auto coverage before the busy summer months.' },
-		{ month: 'SEP', icon: 'fa fa-briefcase', title: 'Back-to-Business Forum', location: 'Ottawa, ON', text: 'Each September, we bring together entrepreneurs and business owners for an afternoon of insights on commercial insurance, liability protection, and risk management.' }
+		{ month: 'JAN', icon: 'fa fa-home',      title: 'Annual Home Insurance Review',   location: 'Montréal & Laval, QC',    text: 'Every January, we invite homeowners to sit down with one of our advisors for a free annual review of their property coverage — making sure their policy keeps pace with their life.' },
+		{ month: 'APR', icon: 'fa fa-car',       title: 'Spring Auto Insurance Check-Up', location: 'Across Québec & Ontario', text: 'A seasonal check-up event held each spring to help drivers review and optimize their auto coverage before the busy summer months.' },
+		{ month: 'SEP', icon: 'fa fa-briefcase', title: 'Back-to-Business Forum',         location: 'Ottawa, ON',              text: 'Each September, we bring together entrepreneurs and business owners for an afternoon of insights on commercial insurance, liability protection, and risk management.' }
 	];
-
 </script>
 
 <svelte:head>
@@ -42,154 +43,73 @@
 	title="The Events"
 	text="We believe in more than policies — we invest in our community through education, connection, and open conversations about protection."
 	image="/assets/images/elhageassurance-event001.jpg"
+	imagePosition="center 30%"
 />
 
-<!-- Yearly Recurrent Events -->
-<section data-bs-version="5.1" class="features01 standm5 cid-vahyic37Pe" id="events-recurrent">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-10">
-				<div class="content-wrapper">
-					<div class="title-wrapper">
-						<p class="mbr-label mbr-fonts-style display-4 eh-card-text">Every year, without exception</p>
-						<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">Yearly Recurrent Events</h2>
-					</div>
-					<div class="row mt-4 g-4">
-						{#each recurrent as ev}
-							<div class="col-12 col-md-6 col-lg-4 d-flex">
-								<div style="background:#fff; border-radius:10px; box-shadow:0 4px 20px rgba(0,0,0,0.07); overflow:hidden; width:100%; display:flex; flex-direction:column;">
-									<div style="background:#204a77; padding:1.8rem 1.5rem; display:flex; align-items:center; gap:1rem; min-height:6.5rem;">
-										<div style="text-align:center; min-width:3rem;">
-											<div style="font-size:0.7rem; font-weight:700; color:rgba(255,255,255,0.7); letter-spacing:0.1em;">{ev.month}</div>
-											<div style="font-size:0.75rem; color:rgba(255,255,255,0.55); margin-top:0.3rem;">↻ Yearly</div>
-										</div>
-										<div style="border-left:1px solid rgba(255,255,255,0.25); padding-left:1rem;">
-											<h4 style="font-size:1rem; font-weight:600; color:#fff; margin:0 0 0.5rem;">{ev.title}</h4>
-											<p style="font-size:0.85rem; color:rgba(255,255,255,0.7); margin:0;">
-												<span class="fa fa-map-marker" style="margin-right:0.35rem;"></span>{ev.location}
-											</p>
-										</div>
-									</div>
-									<div style="padding:1.25rem 1.5rem; flex:1;">
-										<p class="mbr-fonts-style display-7 eh-card-text">{ev.text}</p>
-									</div>
-									<div style="padding:0 1.5rem 0.75rem;">
-										<a href="/contact-us" class="recurrent-btn">Register Interest</a>
-									</div>
-								</div>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<RecurrentEventsList events={recurrent} />
 
-<!-- Past Events -->
-<section data-bs-version="5.1" class="features01 standm5 cid-vahwOEdtLW" id="events-past">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-10">
-				<div class="content-wrapper">
-					<div class="title-wrapper">
-						<p class="mbr-label mbr-fonts-style display-4 eh-card-text">A look back</p>
-						<h2 class="mbr-section-title mbr-fonts-style display-2 eh-main-title">Past Events</h2>
-					</div>
-					<div class="row items-wrapper justify-content-center">
-						{#each events as ev}
-							<div class="col-12 col-lg-4 item features-image">
-								<div class="item-wrapper large-radius">
-									<div class="item-img card-wrap" style="overflow:hidden;">
-										<img src={ev.image} alt={ev.title} style="width:100%; height:220px; object-fit:cover;">
-									</div>
-									<div class="item-content">
-										<p class="mbr-fonts-style display-7 eh-card-text" style="color:#204a77; font-weight:600; margin-bottom:0.3rem;">
-											<span class="fa fa-calendar" style="margin-right:0.35rem;"></span>{ev.date}
-											&nbsp;|&nbsp;
-											<span class="fa fa-map-marker" style="margin-right:0.35rem;"></span>{ev.location}
-										</p>
-										<h4 class="item-title mbr-fonts-style display-5 eh-card-title">{ev.title}</h4>
-										<p class="item-text mbr-fonts-style display-7 eh-card-text">{ev.text}</p>
-									</div>
-								</div>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
+<PastEventsList events={events} />
+
+<!-- Stay Connected CTA -->
+<section class="ev-cta">
+	<div class="ev-cta-inner">
+		<div class="ev-eyebrow">
+			<span class="rule"></span>
+			<span class="text">Stay in the loop</span>
 		</div>
+		<h2 class="ev-title">
+			Want to know about <span class="accent">future events?</span>
+		</h2>
+		<p class="ev-sub">Leave us a note and we'll let you know when the next one is scheduled.</p>
+		<a class="ev-btn" href="/contact-us">
+			Get in touch <span class="arrow">→</span>
+		</a>
 	</div>
 </section>
 
 <style>
-	:global(#events-past .title-wrapper) {
-		text-align: center !important;
-	}
-
-	.recurrent-btn {
-		display: block;
-		width: 100%;
-		text-align: center;
-		padding: 0.75rem 1rem;
-		background: #c8a96e;
-		color: #0d1f35;
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.15em;
-		text-transform: uppercase;
-		text-decoration: none;
-		border-radius: 6px;
-		transition: background 0.2s, transform 0.2s;
-	}
-
-	.recurrent-btn:hover {
-		background: #d9bc8a;
-		color: #0d1f35;
-		transform: translateY(-3px);
-	}
-
-	#events-cta {
-		padding: 5rem 0;
-		background: #f5f6f8;
+	.ev-cta {
+		background: linear-gradient(180deg, #f4f8fd 0%, #ffffff 100%);
+		padding: 5rem 1.5rem 6rem;
 		text-align: center;
 	}
+	.ev-cta-inner { max-width: 640px; margin: 0 auto; }
 
-	#events-cta .cta-title {
-		font-size: 2.4rem;
+	.ev-eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+	.rule { width: 2.5rem; height: 1px; background: #c8a96e; }
+	.text {
+		font-size: 0.72rem; font-weight: 700;
+		letter-spacing: 0.22em; text-transform: uppercase;
+		color: #c8a96e;
+	}
+
+	.ev-title {
+		margin: 0;
+		font-size: clamp(2rem, 3.4vw, 2.8rem);
 		font-weight: 300;
-		color: #0d1f35;
-		letter-spacing: -0.02em;
-		margin: 0 0 2rem;
+		letter-spacing: -0.02em; line-height: 1.15;
+		color: #0f1e2e;
+	}
+	.ev-title .accent { color: #204a77; font-weight: 600; }
+	.ev-sub {
+		margin: 1.2rem auto 2rem;
+		font-size: 1rem; line-height: 1.6; color: #4a5a6e;
 	}
 
-	#events-cta .cta-btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		color: #fff;
+	.ev-btn {
+		display: inline-flex; align-items: center; gap: 0.55rem;
+		padding: 1rem 1.75rem;
+		background: #204a77; color: #fff;
+		font-size: 0.85rem; font-weight: 700;
+		letter-spacing: 0.04em; text-transform: uppercase;
+		border-radius: 999px;
 		text-decoration: none;
-		background: #204a77;
-		border-radius: 6px;
-		padding: 0.9rem 2.2rem;
-		transition: background 0.2s, transform 0.15s;
+		transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 	}
-
-	#events-cta .cta-btn:hover {
-		background: #0d1f35;
-		transform: translateY(-1px);
-		color: #fff;
+	.ev-btn:hover {
+		background: #1a3d63; transform: translateY(-1px);
+		box-shadow: 0 12px 28px -10px rgba(32,74,119,0.5);
 	}
+	.arrow { transition: transform 0.2s ease; }
+	.ev-btn:hover .arrow { transform: translateX(3px); }
 </style>
-
-<!-- Stay Connected CTA -->
-<section id="events-cta">
-	<div class="container">
-		<p class="cta-title">Want to be notified about future events ?</p>
-		<a class="cta-btn" href="/contact-us">Get in Touch</a>
-	</div>
-</section>

@@ -1,8 +1,8 @@
 <script>
-	let { label = '', title = '', text = '', image = '' } = $props();
+	let { label = '', title = '', text = '', image = '', imagePosition = 'center top' } = $props();
 </script>
 
-<section class="page-hero" style={image ? `--hero-img: url('${image}');` : ''}>
+<section class="page-hero" style={image ? `--hero-img: url('${image}'); --hero-pos: ${imagePosition};` : ''}>
 
 	<!-- gradient only at the bottom — top of image is fully clear -->
 	<div class="hero-gradient"></div>
@@ -38,22 +38,22 @@
 		/* text anchored to the bottom */
 		align-items: flex-end;
 		background-image: var(--hero-img, none);
-		background-color: #0d1f35;
+		background-color: #f7faff;
 		background-size: cover;
-		background-position: center top;
+		background-position: var(--hero-pos, center top);
 		overflow: hidden;
 	}
 
-	/* gradient rises from the bottom — top portion of image is 100% clear */
+	/* light wash rises from the bottom — top portion of image is 100% clear */
 	.hero-gradient {
 		position: absolute;
 		inset: 0;
 		background: linear-gradient(
 			to top,
-			rgba(6, 14, 28, 0.97) 0%,
-			rgba(6, 14, 28, 0.80) 22%,
-			rgba(6, 14, 28, 0.35) 45%,
-			transparent           70%
+			rgba(247, 250, 255, 0.97) 0%,
+			rgba(247, 250, 255, 0.82) 28%,
+			rgba(247, 250, 255, 0.35) 55%,
+			transparent              78%
 		);
 		z-index: 1;
 	}
@@ -94,7 +94,7 @@
 	.hero-title {
 		font-size: 3.8rem;
 		font-weight: 300;
-		color: #fff;
+		color: #0f1e2e;
 		line-height: 1.08;
 		letter-spacing: -0.03em;
 		margin: 0 0 1.1rem;
@@ -103,7 +103,7 @@
 	/* ── SUBTITLE ───────────────────────────────────────── */
 	.hero-desc {
 		font-size: 1rem;
-		color: rgba(255, 255, 255, 0.60);
+		color: #4a5a6e;
 		line-height: 1.7;
 		margin: 0;
 		max-width: 540px;
