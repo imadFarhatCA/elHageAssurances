@@ -4,7 +4,7 @@
 	import SectionHeader from './SectionHeader.svelte';
 </script>
 
-<section class="qr">
+<section class="qr" id="quote">
 	<div class="qr-inner">
 		<SectionHeader
 			eyebrow="Get started"
@@ -29,7 +29,7 @@
 				<QuoteFullForm />
 			</article>
 
-			<article class="qr-card qr-card-secondary">
+			<article class="qr-card qr-card-secondary" id="refer">
 				<header class="qr-card-head">
 					<div class="qr-badge qr-badge-gold">
 						<span class="fa fa-users"></span>

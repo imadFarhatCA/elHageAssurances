@@ -23,6 +23,7 @@ export const site = {
 		instagram: '#',
 		linkedin:  '#'
 	},
-	// TODO: replace with Microsoft Bookings URL
-	bookings: '#book-appointment'
+	// TODO: replace with real Microsoft Bookings URL
+	// (must be a full https:// URL so the static-site prerenderer skips it)
+	bookings: 'https://outlook.office.com/bookwithme/elhageassurances-TODO'
 };

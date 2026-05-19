@@ -1,13 +1,10 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-cloudflare';
 
 const config = {
 	kit: {
 		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: undefined,
-			precompress: false,
-			strict: true
+			// All SvelteKit endpoints (+server.js) become Cloudflare Pages
+			// Functions; pages are prerendered where possible, SSR'd otherwise.
 		})
 	}
 };

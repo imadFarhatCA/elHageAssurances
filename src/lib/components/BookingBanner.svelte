@@ -1,7 +1,6 @@
 <script>
-	// TODO: replace href with your Microsoft Bookings URL
-	// e.g. https://outlook.office.com/bookwithme/user/<id>@elhage.ca/...
-	const bookingsUrl = '#book-appointment';
+	import { site } from '$lib/data/site.js';
+	const bookingsUrl = site.bookings;
 </script>
 
 <section class="booking">
