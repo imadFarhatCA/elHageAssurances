@@ -13,10 +13,9 @@
 // More info: https://developers.cloudflare.com/turnstile/
 
 // Public — safe to expose to the browser.
-export const TURNSTILE_SITE_KEY = '1x00000000000000000000AA';
-// ↑ TEST key — visible widget that always passes.
-//   Replace with your real CF Turnstile site key when ready.
+export const TURNSTILE_SITE_KEY = '0x4AAAAAADSkODm6rEWxg-jm';
 
-// Private fallback — only used if the TURNSTILE_SECRET env var is missing.
-// In production, set TURNSTILE_SECRET in Cloudflare Pages env vars.
+// Test secret — used only as a fallback when the TURNSTILE_SECRET env var
+// is missing (e.g. in local dev). In production, the real secret MUST be set
+// as TURNSTILE_SECRET in Cloudflare Pages → Settings → Variables and Secrets.
 export const TURNSTILE_TEST_SECRET = '1x0000000000000000000000000000000AA';
